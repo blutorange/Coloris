@@ -1,7 +1,7 @@
 
 # Coloris
 
-![Coloris in light, dark and polaroid themes](https://raw.githubusercontent.com/mdbassit/Coloris/gh-pages/images/coloris-light-dark-polaroid.jpg)
+![Coloris in light, dark and polaroid themes](https://raw.githubusercontent.com/melloware/Coloris/gh-pages/images/coloris-light-dark-polaroid.jpg)
 
 A lightweight and elegant JavaScript color picker written in vanilla ES6.
 Convert any text input field into a color field.
@@ -25,16 +25,11 @@ Convert any text input field into a color field.
 
 ### Basic usage
 
-Download the [latest version](https://github.com/mdbassit/Coloris/releases/latest), and add the script and style to your page:
+Download the [latest version](https://github.com/melloware/Coloris/releases/latest), and add the script and style to your page:
+
 ```html
 <link rel="stylesheet" href="coloris.min.css"/>
 <script src="coloris.min.js"></script>
-```
-
-Or include from a CDN:
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.css"/>
-<script src="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.js"></script>
 ```
 
 Then just add the data-coloris attribute to your input fields:
@@ -43,6 +38,41 @@ Then just add the data-coloris attribute to your input fields:
 ```
 
 That's it. All done!
+
+### NPM
+
+You can also download the color picker from NPM
+
+```bash
+# using NPM
+npm install coloris-npm
+# using Yarn
+yarn add coloris-npm
+```
+
+And then use it within a module environment, e.g. with browserify, rollup,
+webpack etc. In this case, you must initialize the color picker before its
+first use (which has several side-effects such as adding DOM elements):
+
+```javascript
+import "coloris-npm/dist/coloris.css";
+import Coloris from "coloris-npm";
+Coloris.init();
+Coloris({el: "#coloris"});
+```
+
+### AMD
+
+The color picker also works with AMD / require.js:
+
+```javascript
+requirejs(['coloris-npm'], function (Coloris) {
+  Coloris.init();
+  Coloris({
+    el: "#coloris",
+  });
+});
+```
 
 ### Options
 
@@ -128,7 +158,7 @@ Coloris.close(true);
 
 Clone the git repo:
 ```bash
-git clone git@github.com:mdbassit/Coloris.git
+git clone git@github.com:melloware/Coloris.git
 ```
 
 Enter the Coloris directory and install the development dependencies:
@@ -149,19 +179,28 @@ npm run start
 
 # TypeScript
 
-This package includes TypeScript declarations. Since this project is a global
-library, you need to either add a triple slash reference or add an entry to the
-types array in the `tsconfig.json`:
+This package includes TypeScript declarations. When you use it in a module
+environment, just import it:
 
-```json
-{
-  "compilerOptions": {
-    "types": ["Coloris"]
-  }
-}
+```typescript
+import "coloris-npm/dist/coloris.css";
+import Coloris from "coloris-npm";
+
+Coloris.init();
+Coloris({el: "#coloris"});
+Coloris.close();
+```
+
+If you wish to write a global script file, use a triple slash reference:
+
+```typescript
+/// <reference types="coloris-npm" />
+Coloris({
+    el: "#coloris",
+});
 ```
 
 ## License
 
 Copyright (c) 2021 Momo Bassit.
-**Coloris** is licensed under the [MIT license](https://github.com/mdbassit/Coloris/blob/main/LICENSE).
+**Coloris** is licensed under the [MIT license](https://github.com/melloware/Coloris/blob/main/LICENSE).

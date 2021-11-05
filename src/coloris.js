@@ -4,7 +4,7 @@
  * https://github.com/mdbassit/Coloris
  */
 
-((window, document, Math) => {
+return ((window, document, Math) => {
   const ctx = document.createElement('canvas').getContext('2d');
   const currentColor = { r: 0, g: 0, b: 0, h: 0, s: 0, v: 0, a: 1 };
   let picker, colorArea, colorAreaDims, colorMarker, colorPreview, colorValue, clearButton,
@@ -848,8 +848,9 @@
   }
 
   // Expose the color picker to the global scope
-  window.Coloris = (() => {
+  const Coloris = (() => {
     const methods = {
+      init: init,
       set: configure,
       wrap: wrapFields,
       close: closePicker
@@ -877,6 +878,6 @@
   })();
 
   // Init the color picker when the DOM is ready
-  DOMReady(init);
+  return Coloris;
 
 })(window, document, Math);

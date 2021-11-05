@@ -4,6 +4,7 @@ import uglify from 'gulp-uglify';
 import cleanCSS from 'gulp-clean-css';
 import rename from 'gulp-rename';
 import replace from 'gulp-replace';
+import wrap from 'gulp-wrap';
 
 
 const path = {
@@ -16,7 +17,8 @@ const path = {
 
 function minifyJS() {
   return src(path.js)
-    .pipe(babel({ retainLines: true }))
+  .pipe(wrap({src: "./umd-wrapper.js"}, {}, { parse: false }))
+  .pipe(babel({ retainLines: true }))
     .pipe(replace('"use strict";', ''))
     // Output the non-minified version
     .pipe(dest(path.dist))
