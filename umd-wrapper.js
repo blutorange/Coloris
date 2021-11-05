@@ -20,7 +20,7 @@
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as a named module.
-    define("coloris-npm", [], factory);
+    define("@melloware/coloris", [], factory);
   }
   else if (typeof module === 'object' && module.exports) {
     // Node. Does not work with strict CommonJS, but

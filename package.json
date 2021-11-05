@@ -1,13 +1,37 @@
 {
-  "name": "coloris-npm",
+  "name": "@melloware/coloris",
   "version": "0.6.0",
   "description": "A lightweight and elegant color picker.",
   "author": "Momo Bassit",
+  "contributors": [
+    "Melloware <mellowaredev@gmail.com> (http://melloware.com)",
+    "Andre Wachsmuth <sensenmann5@gmail.com> (https://github.com/blutorange)"
+  ],
   "license": "MIT",
   "main": "dist/coloris.js",
   "types": "dist/coloris.d.ts",
   "files": [
     "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/melloware/Coloris.git"
+  },
+  "bugs": {
+    "url" : "https://github.com/mdbassit/Coloris/issues"
+  },
+  "homepage": "https://coloris.js.org",
+  "keywords": [
+    "color",
+    "picker",
+    "color picker",
+    "color-picker",
+    "colorpicker",
+    "accessible",
+    "accessibility",
+    "aria",
+    "a11y",
+    "wai-aria"
   ],
   "devDependencies": {
     "@babel/core": "^7.15.5",
@@ -23,7 +47,8 @@
   },
   "scripts": {
     "build": "gulp build",
-    "start": "gulp"
+    "start": "gulp",
+    "prepublish": "gulp build"
   },
   "browserslist": "> 0.25%, not dead",
   "babel": {

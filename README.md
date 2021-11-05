@@ -45,9 +45,9 @@ You can also download the color picker from NPM
 
 ```bash
 # using NPM
-npm install coloris-npm
+npm install @melloware/coloris
 # using Yarn
-yarn add coloris-npm
+yarn add @melloware/coloris
 ```
 
 And then use it within a module environment, e.g. with browserify, rollup,
@@ -55,8 +55,8 @@ webpack etc. In this case, you must initialize the color picker before its
 first use (which has several side-effects such as adding DOM elements):
 
 ```javascript
-import "coloris-npm/dist/coloris.css";
-import Coloris from "coloris-npm";
+import "@melloware/coloris/dist/coloris.css";
+import Coloris from "@melloware/coloris";
 Coloris.init();
 Coloris({el: "#coloris"});
 ```
@@ -66,7 +66,7 @@ Coloris({el: "#coloris"});
 The color picker also works with AMD / require.js:
 
 ```javascript
-requirejs(['coloris-npm'], function (Coloris) {
+requirejs(['@melloware/coloris'], function (Coloris) {
   Coloris.init();
   Coloris({
     el: "#coloris",
@@ -154,6 +154,29 @@ Coloris.close();
 Coloris.close(true);
 ```
 
+# TypeScript
+
+This package includes TypeScript declarations. When you use it in a module
+environment, just import it:
+
+```typescript
+import "@melloware/coloris/dist/coloris.css";
+import Coloris from "@melloware/coloris";
+
+Coloris.init();
+Coloris({el: "#coloris"});
+Coloris.close();
+```
+
+If you wish to write a global script file, use a triple slash reference:
+
+```typescript
+/// <reference types="@melloware/coloris" />
+Coloris({
+    el: "#coloris",
+});
+```
+
 ## Building from source
 
 Clone the git repo:
@@ -177,28 +200,16 @@ Alternatively, you can start a gulp watch task to automatically build when the s
 npm run start
 ```
 
-# TypeScript
+## Publishing
 
-This package includes TypeScript declarations. When you use it in a module
-environment, just import it:
+Adjust the version in the `package.json` if necessary, then
 
-```typescript
-import "coloris-npm/dist/coloris.css";
-import Coloris from "coloris-npm";
-
-Coloris.init();
-Coloris({el: "#coloris"});
-Coloris.close();
+```bash
+# This will run npm run build automatically
+npm publish --access public
 ```
 
-If you wish to write a global script file, use a triple slash reference:
-
-```typescript
-/// <reference types="coloris-npm" />
-Coloris({
-    el: "#coloris",
-});
-```
+Then upload code to github, create tag & release.
 
 ## License
 
