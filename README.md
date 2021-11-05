@@ -63,7 +63,7 @@ Coloris({
   // the accessible button (not recommended).
   wrap: true,
 
-  // Available themes: light, dark, polaroid, polaroid-dark.
+  // Available themes: light, dark, large, large-dark, polaroid, polaroid-dark.
   // More themes might be added in the future.
   theme: 'light',
 
@@ -74,6 +74,7 @@ Coloris({
   //  * hex: outputs #RRGGBB or #RRGGBBAA (default).
   //  * rgb: outputs rgb(R, G, B) or rgba(R, G, B, A).
   //  * hsl: outputs hsl(H, S, L) or hsla(H, S, L, A).
+  //  * auto: guesses the format from the active input field. Defaults to hex if it fails.
   //  * mixed: outputs #RRGGBB when alpha is 1; otherwise rgba(R, G, B, A).
   format: 'hex',
 
