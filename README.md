@@ -205,6 +205,7 @@ npm run start
 Adjust the version in the `package.json` if necessary, then
 
 ```bash
+npm login
 # This will run npm run build automatically
 npm publish --access public
 ```

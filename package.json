@@ -48,7 +48,7 @@
   "scripts": {
     "build": "gulp build",
     "start": "gulp",
-    "prepublish": "gulp build"
+    "prepack": "gulp build"
   },
   "browserslist": "> 0.25%, not dead",
   "babel": {
