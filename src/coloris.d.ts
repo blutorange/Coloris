@@ -6,6 +6,8 @@
 export type ColorTheme =
   | "light"
   | "dark"
+  | "large"
+  | "large-dark"
   | "polaroid"
   | "polaroid-dark";
 
@@ -15,12 +17,15 @@ export type ColorTheme =
  * - `hex` outputs `#RRGGBB` or `#RRGGBBAA`.
  * - `rgb` outputs `rgb(R, G, B)` or `rgba(R, G, B, A)`.
  * - `hsl` outputs `hsl(H, S, L)` or `hsla(H, S, L, A)`.
+ * - `auto` guesses the format from the active input field. Defaults to `hex` if
+ * it fails.
  * - `mixed` outputs `#RRGGBB` when alpha is 1; otherwise `rgba(R, G, B, A)`.
  */
 export type ColorFormat =
   | "hex"
   | "rgb"
   | "hsl"
+  | "auto"
   | "mixed";
 
 export interface Accessibility {
